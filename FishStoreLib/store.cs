@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace FishStoreLib
 {
-    public class store : Fish
+    public class store
     {
-        public List<Fish> Inventory { get; set; }
+      //  public List<Fish> Inventory { get; set; }
 
-        public List<Fish> ShoppingCart { get; set; }
+      //  public List<Fish> ShoppingCart { get; set; }
 
-        public store()
+      /*  public store()
         {
-            Inventory = new List<Fish>();
+           Inventory = new List<Fish>();
             ShoppingCart = new List<Fish>();
         }
 
@@ -47,8 +47,8 @@ namespace FishStoreLib
             ConsoleTable
                 .From<Something>(rows)
                 .Configure(o => o.NumberAlignment = Alignment.Right)
-                .Write(Format.Alternative);   */
-        }
+                .Write(Format.Alternative);   
+        } */
     
     }
 }

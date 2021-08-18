@@ -11,27 +11,27 @@ using ConsoleTables;
 
 namespace FishStoreConsole
 {
-  public  class Program
+    public class Program
     {
-      public  static void Main()
+        public static void Main()
         {
             Console.Clear();
-          //  store s = new store();
-          //  customer cus = new customer();
-            
+            //  store s = new store();
+            //  customer cus = new customer();
+
             Console.WriteLine("-------------------------------------     WELCOME TO OUR FISH STORE.    ---------------------------------------");
 
             Console.Write("1.customer Information\n2.Choose store Location\nChoose one option :   ");
             int chooseoption = int.Parse(Console.ReadLine());
-             switch (chooseoption)
-             {
-                 case 1: 
-                    Menu(); 
+            switch (chooseoption)
+            {
+                case 1:
+                    Menu();
                     break;
-                 case 2:
+                case 2:
                     chooseLocation();
                     break;
-             }
+            }
         }
 
         #region code for later use
@@ -178,6 +178,8 @@ namespace FishStoreConsole
           } */
         #endregion
 
+        //here starts the banglore location code//
+
 
         public static void chooseLocation()
         {
@@ -188,12 +190,151 @@ namespace FishStoreConsole
                 case 1:
                     productsFromMumbai();
                     break;
+                case 3:
+                    productsFromBanglore();
+                    break;
                 default:
                     Console.WriteLine("Invalid option");
                     break;
             }
 
         }
+
+        public static void productsFromBanglore()
+        {
+
+
+            Banglore bu = new Banglore();
+            bu.fetchDetails();
+            //Console.WriteLine(bu.fishDataArray);
+            menuWithinLocation(bu);
+
+
+
+
+        }
+
+
+        public static void menuWithinLocation(Banglore bu)
+        {
+            Console.Write("1.Buy pet fish\n2.Buy fish food\n3.Buy tank\nChoose one option :   ");
+            int chooseoption = int.Parse(Console.ReadLine());
+            switch (chooseoption)
+            {
+                case 1:
+                    FishFromBanglore(bu.fishDataArray, bu);
+                    break;
+                case 2:
+                    FoodFromBanglore(bu.fishFoodArray, bu);
+                    break;
+                case 3:
+                    TankFromBanglore(bu.fishTankArray, bu);
+                    break;
+                default:
+                    chooseLocation();
+                    break;
+            }
+        }
+        public static void FishFromBanglore(JArray fishDataArray, Banglore bu)
+        {
+            string type = "fish";
+
+
+            var table = new ConsoleTable("Id", "Fish Name", "Price", "Available Quantity");
+            foreach (var x in fishDataArray)
+            {
+                table.AddRow(x["id"], x["Name"], x["Price"], x["availableQuantity"]);
+            }
+            table.Write();
+            Console.Write("Choose id to buy fish : ");
+            int selectedId = int.Parse(Console.ReadLine());
+            foreach (var y in fishDataArray)
+            {
+                int id = Convert.ToInt32(y["id"]);
+
+                if (id == selectedId)
+                {
+                    Console.WriteLine($"You bought {y["Name"]} which cost you {y["Price"]}");
+                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]) - 1;
+                    Console.WriteLine("Updated Quantity " + updatedAvailableQuantity);
+                    bu.saveData(updatedAvailableQuantity, selectedId, type);
+                    ContinueOrExitLocation(bu);
+                    break;
+                }
+            }
+
+        }
+
+        public static void FoodFromBanglore(JArray foodDataArray, Banglore bu)
+        {
+            string type = "food";
+            var table = new ConsoleTable("id", "Food", "Price", "Available Quantity");
+            foreach (var x in foodDataArray)
+            {
+                table.AddRow(x["id"], x["food"], x["Price"], x["availableQuantity"]);
+            }
+            table.Write();
+            Console.Write("Choose id to buy food : ");
+            int selectedId = int.Parse(Console.ReadLine());
+            foreach (var y in foodDataArray)
+            {
+                int id = Convert.ToInt32(y["id"]);
+
+                if (id == selectedId)
+                {
+                    Console.WriteLine($"You bought {y["food"]} which cost you {y["Price"]}");
+                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]) - 1;
+                    //Console.WriteLine("Updated Quantity " + updatedAvailableQuantity);
+                    bu.saveData(updatedAvailableQuantity, selectedId, type);
+                    ContinueOrExitLocation(bu);
+                    break;
+                }
+            }
+        }
+
+        public static void TankFromBanglore(JArray tankDataArray, Banglore bu)
+        {
+            string type = "tank";
+
+            var table = new ConsoleTable("id", "name", "price", "Available Quantity");
+            foreach (var x in tankDataArray)
+            {
+                table.AddRow(x["id"], x["Name"], x["Price"], x["availableQuantity"]);
+            }
+            table.Write();
+            Console.Write("Choose id to buy tank : ");
+            int selectedId = int.Parse(Console.ReadLine());
+            foreach (var y in tankDataArray)
+            {
+                int id = Convert.ToInt32(y["id"]);
+
+                if (id == selectedId)
+                {
+                    Console.WriteLine($"You bought {y["Name"]} which cost you {y["Price"]}");
+                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]) - 1;
+                    //Console.WriteLine("Updated Quantity " + updatedAvailableQuantity);
+                    bu.saveData(updatedAvailableQuantity, selectedId, type);
+                    ContinueOrExitLocation(bu);
+                    break;
+                }
+            }
+
+
+        }
+        static void ContinueOrExitLocation(Banglore bu)
+        {
+            Console.WriteLine("Do you want to continue? y/n");
+            var result = Console.ReadLine();
+            if (result == "y" || result == "Y") menuWithinLocation(bu);
+            else chooseLocation();
+        }
+        //end of banglore store location code
+
+
+
+
+
+        //here starts mumbai store location code
 
         public static void productsFromMumbai()
         {
@@ -403,3 +544,6 @@ namespace FishStoreConsole
 
     }
 }
+
+
+

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CUSTOMERS>
+	<CUSTOMER id="1">
+		<NAME>Shivani Goswami</NAME>
+		<EMAIL>shivani88@gmail.com</EMAIL>
+		<PASS>shi88</PASS>
+	</CUSTOMER>
+	<CUSTOMER id="2">
+		<NAME>Romila</NAME>
+		<EMAIL>romila@gmail.com</EMAIL>
+		<PASS>romila</PASS>
+	</CUSTOMER>
+	<CUSTOMER id="3">
+		<NAME>Akshay</NAME>
+		<EMAIL>akshay@gmail.com</EMAIL>
+		<PASS>akshay</PASS>
+	</CUSTOMER>
+	<CUSTOMER id="4">
+		<NAME>Vishram</NAME>
+		<EMAIL>vishram@gmail.com</EMAIL>
+		<PASS>vishram</PASS>
+	</CUSTOMER>
+	<CUSTOMER id="5">
+		<NAME>Imam</NAME>
+		<EMAIL>imam@gmail.com</EMAIL>
+		<PASS>imam</PASS>
+	</CUSTOMER>
+</CUSTOMERS>

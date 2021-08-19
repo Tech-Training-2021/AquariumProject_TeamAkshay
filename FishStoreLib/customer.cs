@@ -28,11 +28,12 @@ namespace FishStoreLib
             email = _mail;
             password = _pass;
         }
-        const string xmlfile = @"C:\Users\user\source\repos\Tech-Training-2021\AquariumProject_TeamAkshay\FishStoreLib\CustomerDetails1.xml";
+        const string xmlfile = @"D:\Fish_Store\FishStoreLib\FishStoreLib\CustomerDetails1.xml";
 
         public void deleteCustomer(string id)
         {
             var xdoc = XDocument.Load(xmlfile);
+            
             var tgtcustomer = xdoc.Root.Descendants("CUSTOMER").FirstOrDefault(x => x.Attribute("id").Value == id);
             tgtcustomer.Remove();
             xdoc.Save(xmlfile);
@@ -47,7 +48,7 @@ namespace FishStoreLib
             tgtUpdate.Element("EMAIL").Value = newEmail;
             tgtUpdate.Element("PASS").Value = newPass;
             xdoc.Save(xmlfile);
-            Console.WriteLine("Name updated successfully.");
+            Console.WriteLine("Information updated successfully.");
 
         }
         public void GetCustomer()
@@ -73,6 +74,18 @@ namespace FishStoreLib
             xdoc.Save(xmlfile);
             Console.WriteLine("Customer details added");
         }
+         public void SearchCustomer(string name)
+        {
+            var xdoc = XDocument.Load(xmlfile);
+            var getcust = xdoc.Root.Descendants("CUSTOMER").Select(x => new customer(int.Parse(x.Attribute("id").Value), x.Element("NAME").Value, x.Element("EMAIL").Value, x.Element("PASS").Value));
 
+            Console.WriteLine("The required customer's Details are as follows : \n\n");
+            var table = new ConsoleTable("ID", "Name", "Email");
+            foreach (var m in getcust)
+            {   if(m.name == name) 
+                table.AddRow(m.id, m.name, m.email);
+            }
+            table.Write();
+        }
     }
 }

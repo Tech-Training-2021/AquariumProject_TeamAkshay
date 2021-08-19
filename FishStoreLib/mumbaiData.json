@@ -4,7 +4,7 @@
       "id": 1,
       "Name": "Goldfish",
       "Price": 100,
-      "availableQuantity": 74
+      "availableQuantity": 73
     },
     {
       "id": 2,
@@ -48,7 +48,7 @@
       "id": 3,
       "food": "Freeze-Dried",
       "Price": 400,
-      "availableQuantity": 500
+      "availableQuantity": 499
     },
     {
       "id": 4,

@@ -11,7 +11,7 @@ namespace FishStoreLib
 {
     public class Banglore
     {
-        private string filePath = @"C:\Users\vishr\Source\Repos\Tech-Training-2021\AquariumProject_TeamAkshay\FishStoreLib\BangloreData.json";
+        private string filePath = @"D:\Fish_Store\FishStoreLib\FishStoreLib\BangloreData.json";
         public JArray fishDataArray;
         public JArray fishFoodArray;
         public JArray fishTankArray;

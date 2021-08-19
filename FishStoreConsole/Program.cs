@@ -188,9 +188,11 @@ namespace FishStoreConsole
                 case 1:
                     productsFromMumbai();
                     break;
-                case 2: productsFromDelhi();
+                case 2: 
+                    productsFromDelhi();
                     break;
-                case 3: productsFromBanglore();
+                case 3: 
+                    productsFromBanglore();
                     break;
                 default:
                     Console.WriteLine("Invalid option");

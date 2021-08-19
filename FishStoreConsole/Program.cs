@@ -128,9 +128,29 @@ namespace FishStoreConsole
                 if (id == selectedId)
                 {
                     Console.WriteLine($"You bought {y["Name"]} which cost you {y["Price"]}");
-                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]) - 1;
-                    Console.WriteLine("Updated Quantity " + updatedAvailableQuantity);
-                    bu.saveData(updatedAvailableQuantity, selectedId, type);
+                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]);
+                    Console.WriteLine("Enter the Quantity Of order in number.(Upto 10)");
+                    int UserInputQuantity = int.Parse(Console.ReadLine());
+                    if (updatedAvailableQuantity ==0)
+                    {
+                        Console.WriteLine("OUT OF STOCK");
+                    }
+                        else if  (UserInputQuantity < 11 && UserInputQuantity < updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("Added to your order.Here is your Purchase data");
+                        int updatedAfterQuantity = Convert.ToInt32(y["availableQuantity"]) - UserInputQuantity;
+                        bu.saveData(updatedAfterQuantity, selectedId, type);
+                    }
+                    else if (UserInputQuantity > 11)
+                    {
+                        Console.WriteLine("You can Only buy upto 10 products");
+                        Console.WriteLine("Enter the Quantity Of order in number");
+                        UserInputQuantity = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Added to your order.Here is your Purchase data");
+                       int updatedAfterQuantity = Convert.ToInt32(y["availableQuantity"]) - UserInputQuantity;
+                        bu.saveData(updatedAfterQuantity, selectedId, type);
+                    }
+                   
                     ContinueOrExitLocation(bu);
                     break;
                 }
@@ -156,9 +176,23 @@ namespace FishStoreConsole
                 if (id == selectedId)
                 {
                     Console.WriteLine($"You bought {y["food"]} which cost you {y["Price"]}");
-                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]) - 1;
-                    //Console.WriteLine("Updated Quantity " + updatedAvailableQuantity);
-                    bu.saveData(updatedAvailableQuantity, selectedId, type);
+                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]);
+                    Console.WriteLine("Enter the Quantity Of order in number");
+                    int UserInputQuantity = int.Parse(Console.ReadLine());
+                    if (UserInputQuantity < 11 && UserInputQuantity < updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("Added to your order.Here is your Purchase data");
+                        int updatedAfterQuantity = Convert.ToInt32(y["availableQuantity"]) - UserInputQuantity;
+                        bu.saveData(updatedAfterQuantity, selectedId, type);
+                    }
+                    else if (UserInputQuantity > 11)
+                    {
+                        Console.WriteLine("Invalid Input.Enter the input between 1 t0 10");
+                    }
+                    else if (UserInputQuantity > updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("IOut of Stock");
+                    }
                     ContinueOrExitLocation(bu);
                     break;
                 }
@@ -196,9 +230,13 @@ namespace FishStoreConsole
                         int updatedAfterQuantity = Convert.ToInt32(y["availableQuantity"]) - UserInputQuantity;
                         bu.saveData(updatedAfterQuantity, selectedId, type);
                     }
-                    else if(UserInputQuantity>11 || UserInputQuantity>updatedAvailableQuantity)
+                    else if(UserInputQuantity>11)
                     {
-                        Console.WriteLine("Invalid Input/Out of Stock");
+                        Console.WriteLine("Invalid Input.Enter the input between 1 t0 10");
+                    }
+                    else if ( UserInputQuantity > updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("IOut of Stock");
                     }
                     //int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]) - 1;
                     //Console.WriteLine("Updated Quantity " + updatedAvailableQuantity);
@@ -249,9 +287,23 @@ namespace FishStoreConsole
                 if (id == selectedId)
                 {
                     Console.WriteLine($"You bought {y["Name"]} which cost you {y["Price"]}");
-                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]) - 1;
-                    Console.WriteLine("Updated Quantity " + updatedAvailableQuantity);
-                    mu.saveData(updatedAvailableQuantity, selectedId, type);
+                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]);
+                    Console.WriteLine("Enter the Quantity Of order in number");
+                    int UserInputQuantity = int.Parse(Console.ReadLine());
+                    if (UserInputQuantity < 11 && UserInputQuantity < updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("Added to your order.Here is your Purchase data");
+                        int updatedAfterQuantity = Convert.ToInt32(y["availableQuantity"]) - UserInputQuantity;
+                        mu.saveData(updatedAfterQuantity, selectedId, type);
+                    }
+                    else if (UserInputQuantity > 11)
+                    {
+                        Console.WriteLine("Invalid Input.Enter the input between 1 t0 10");
+                    }
+                    else if (UserInputQuantity > updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("IOut of Stock");
+                    }
                     ContinueOrExitLocation(mu);
                     break;
                 }
@@ -277,9 +329,24 @@ namespace FishStoreConsole
                 if (id == selectedId)
                 {
                     Console.WriteLine($"You bought {y["food"]} which cost you {y["Price"]}");
-                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]) - 1;
-                    //Console.WriteLine("Updated Quantity " + updatedAvailableQuantity);
-                    mu.saveData(updatedAvailableQuantity, selectedId, type);
+                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]);
+                    Console.WriteLine("Enter the Quantity Of order in number");
+                    int UserInputQuantity = int.Parse(Console.ReadLine());
+                    if (UserInputQuantity < 11 && UserInputQuantity < updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("Added to your order.Here is your Purchase data");
+                        int updatedAfterQuantity = Convert.ToInt32(y["availableQuantity"]) - UserInputQuantity;
+                        mu.saveData(updatedAfterQuantity, selectedId, type);
+                    }
+                    else if (UserInputQuantity > 11)
+                    {
+                        Console.WriteLine("Invalid Input.Enter the input between 1 t0 10");
+                    }
+                    else if (UserInputQuantity > updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("IOut of Stock");
+                    }
+                    
                     ContinueOrExitLocation(mu);
                     break;
                 }
@@ -308,9 +375,23 @@ namespace FishStoreConsole
                 if (id == selectedId)
                 {
                     Console.WriteLine($"You bought {y["Name"]} which cost you {y["Price"]}");
-                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]) - 1;
-                    //Console.WriteLine("Updated Quantity " + updatedAvailableQuantity);
-                    mu.saveData(updatedAvailableQuantity, selectedId, type);
+                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]);
+                    Console.WriteLine("Enter the Quantity Of order in number");
+                    int UserInputQuantity = int.Parse(Console.ReadLine());
+                    if (UserInputQuantity < 11 && UserInputQuantity < updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("Added to your order.Here is your Purchase data");
+                        int updatedAfterQuantity = Convert.ToInt32(y["availableQuantity"]) - UserInputQuantity;
+                        mu.saveData(updatedAfterQuantity, selectedId, type);
+                    }
+                    else if (UserInputQuantity > 11)
+                    {
+                        Console.WriteLine("Invalid Input.Enter the input between 1 t0 10");
+                    }
+                    else if (UserInputQuantity > updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("IOut of Stock");
+                    }
                     ContinueOrExitLocation(mu);
                     break;
                 }
@@ -376,10 +457,24 @@ namespace FishStoreConsole
                     if (id == selectedId)
                     {
                         Console.WriteLine($"You bought {y["Name"]} which cost you {y["Price"]}");
-                        int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]) - 1;
-                        Console.WriteLine("Updated Quantity " + updatedAvailableQuantity);
-                        del.saveData(updatedAvailableQuantity, selectedId, type);
-                        ContinueOrExitLocation(del);
+                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]);
+                    Console.WriteLine("Enter the Quantity Of order in number");
+                    int UserInputQuantity = int.Parse(Console.ReadLine());
+                    if (UserInputQuantity < 11 && UserInputQuantity < updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("Added to your order.Here is your Purchase data");
+                        int updatedAfterQuantity = Convert.ToInt32(y["availableQuantity"]) - UserInputQuantity;
+                        del.saveData(updatedAfterQuantity, selectedId, type);
+                    }
+                    else if (UserInputQuantity > 11)
+                    {
+                        Console.WriteLine("Invalid Input.Enter the input between 1 t0 10");
+                    }
+                    else if (UserInputQuantity > updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("IOut of Stock");
+                    }
+                    ContinueOrExitLocation(del);
                         break;
                     }
                 }
@@ -410,9 +505,23 @@ namespace FishStoreConsole
                 if (id == selectedId)
                 {
                     Console.WriteLine($"You bought {y["food"]} which cost you {y["Price"]}");
-                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]) - 1;
-                    //Console.WriteLine("Updated Quantity " + updatedAvailableQuantity);
-                    del.saveData(updatedAvailableQuantity, selectedId, type);
+                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]);
+                    Console.WriteLine("Enter the Quantity Of order in number");
+                    int UserInputQuantity = int.Parse(Console.ReadLine());
+                    if (UserInputQuantity < 11 && UserInputQuantity < updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("Added to your order.Here is your Purchase data");
+                        int updatedAfterQuantity = Convert.ToInt32(y["availableQuantity"]) - UserInputQuantity;
+                        del.saveData(updatedAfterQuantity, selectedId, type);
+                    }
+                    else if (UserInputQuantity > 11)
+                    {
+                        Console.WriteLine("Invalid Input.Enter the input between 1 t0 10");
+                    }
+                    else if (UserInputQuantity > updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("IOut of Stock");
+                    }
                     ContinueOrExitLocation(del);
                     break;
                 }
@@ -441,9 +550,23 @@ namespace FishStoreConsole
                 if (id == selectedId)
                 {
                     Console.WriteLine($"You bought {y["Name"]} which cost you {y["Price"]}");
-                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]) - 1;
-                    //Console.WriteLine("Updated Quantity " + updatedAvailableQuantity);
-                    del.saveData(updatedAvailableQuantity, selectedId, type);
+                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]);
+                    Console.WriteLine("Enter the Quantity Of order in number");
+                    int UserInputQuantity = int.Parse(Console.ReadLine());
+                    if (UserInputQuantity < 11 && UserInputQuantity < updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("Added to your order.Here is your Purchase data");
+                        int updatedAfterQuantity = Convert.ToInt32(y["availableQuantity"]) - UserInputQuantity;
+                        del.saveData(updatedAfterQuantity, selectedId, type);
+                    }
+                    else if (UserInputQuantity > 11)
+                    {
+                        Console.WriteLine("Invalid Input.Enter the input between 1 t0 10");
+                    }
+                    else if (UserInputQuantity > updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("IOut of Stock");
+                    }
                     ContinueOrExitLocation(del);
                     break;
                 }

@@ -1,17 +1,17 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.IO;
 
 namespace FishStoreLib
 {
-    public class Mumbai
+    public class Delhi
     {
-        private string filePath = @"C:\Users\user\source\repos\Tech-Training-2021\AquariumProject_TeamAkshay\FishStoreLib\mumbaiData.json";
+        private string filePath = @"C:\Users\user\source\repos\Tech-Training-2021\AquariumProject_TeamAkshay\FishStoreLib\delhiData.json";
         public JArray fishDataArray;
         public JArray fishFoodArray;
         public JArray fishTankArray;
@@ -94,9 +94,6 @@ namespace FishStoreLib
                     break;
             }
             fetchDetails();
-
-
         }
-
     }
 }

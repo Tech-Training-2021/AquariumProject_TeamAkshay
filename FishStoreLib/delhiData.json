@@ -1,0 +1,98 @@
+{
+  "fishData": [
+    {
+      "id": 1,
+      "Name": "Goldfish",
+      "Price": 100,
+      "availableQuantity": 83
+    },
+    {
+      "id": 2,
+      "Name": "Angelfish",
+      "Price": 150,
+      "availableQuantity": 100
+    },
+    {
+      "id": 3,
+      "Name": "African Leaf Fish",
+      "Price": 200,
+      "availableQuantity": 100
+    },
+    {
+      "id": 4,
+      "Name": "Oscar",
+      "Price": 250,
+      "availableQuantity": 130
+    },
+    {
+      "id": 5,
+      "Name": "Tiger barb",
+      "Price": 300,
+      "availableQuantity": 98
+    }
+  ],
+  "fishFood": [
+    {
+      "id": 1,
+      "food": "Flake Food",
+      "Price": 200,
+      "availableQuantity": 50
+    },
+    {
+      "id": 2,
+      "food": "FPellets",
+      "Price": 300,
+      "availableQuantity": 100
+    },
+    {
+      "id": 3,
+      "food": "Freeze-Dried",
+      "Price": 400,
+      "availableQuantity": 80
+    },
+    {
+      "id": 4,
+      "food": "Frozen",
+      "Price": 500,
+      "availableQuantity": 59
+    },
+    {
+      "id": 5,
+      "food": "Spirulina/Dried Seaweed",
+      "Price": 550,
+      "availableQuantity": 50
+    }
+  ],
+  "fishTank": [
+    {
+      "id": 1,
+      "Name": "Coldwater Aquarium",
+      "Price": 1000,
+      "availableQuantity": 15
+    },
+    {
+      "id": 2,
+      "Name": "Freshwater Tropical Aquarium",
+      "Price": 1500,
+      "availableQuantity": 20
+    },
+    {
+      "id": 3,
+      "Name": "Marine (Saltwater) Aquarium",
+      "Price": 2000,
+      "availableQuantity": 20
+    },
+    {
+      "id": 4,
+      "Name": "Brackish Aquarium",
+      "Price": 2500,
+      "availableQuantity": 24
+    },
+    {
+      "id": 5,
+      "Name": "Betta Fish Tank",
+      "Price": 3000,
+      "availableQuantity": 15
+    }
+  ]
+}

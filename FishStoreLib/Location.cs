@@ -9,16 +9,16 @@ using System.IO;
 
 namespace FishStoreLib
 {
-    public class Banglore
+    public class Location
     {
-        private string filePath = @"C:\dotnet\Project\AquariumProject_TeamAkshay\FishStoreLib\BangloreData.json";
+        private string filePath;
         public JArray fishDataArray;
         public JArray fishFoodArray;
         public JArray fishTankArray;
         public string accessfilePath
         {
             get { return filePath; }
-            set { }
+            set { filePath = value; }
         }
 
         public void fetchDetails()

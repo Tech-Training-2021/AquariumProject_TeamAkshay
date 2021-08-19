@@ -4,13 +4,13 @@
       "id": 1,
       "Name": "Goldfish",
       "Price": 100,
-      "availableQuantity": 5
+      "availableQuantity": 4
     },
     {
       "id": 2,
       "Name": "Angelfish",
       "Price": 150,
-      "availableQuantity": 20
+      "availableQuantity": 19
     },
     {
       "id": 3,

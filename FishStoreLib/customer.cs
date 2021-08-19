@@ -28,7 +28,7 @@ namespace FishStoreLib
             email = _mail;
             password = _pass;
         }
-        const string xmlfile = @"D:\Fish_Store\FishStoreLib\FishStoreLib\CustomerDetails1.xml";
+        const string xmlfile = @"D:\AquariumProject_TeamAkshay\FishStoreLib\CustomerDetails1.xml";
 
         public void deleteCustomer(string id)
         {
@@ -78,14 +78,24 @@ namespace FishStoreLib
         {
             var xdoc = XDocument.Load(xmlfile);
             var getcust = xdoc.Root.Descendants("CUSTOMER").Select(x => new customer(int.Parse(x.Attribute("id").Value), x.Element("NAME").Value, x.Element("EMAIL").Value, x.Element("PASS").Value));
-
-            Console.WriteLine("The required customer's Details are as follows : \n\n");
-            var table = new ConsoleTable("ID", "Name", "Email");
+            int flag = 0;
             foreach (var m in getcust)
-            {   if(m.name == name) 
-                table.AddRow(m.id, m.name, m.email);
+            {
+                if (m.name == name)
+                    flag = 1;
             }
-            table.Write();
+            if (flag == 1)
+            {
+                Console.WriteLine("\nThe required customer's Details are as follows : \n");
+                var table = new ConsoleTable("ID", "Name", "Email");
+                foreach (var m in getcust)
+                {
+                    if (m.name == name)
+                        table.AddRow(m.id, m.name, m.email);
+                }
+                table.Write();
+            }
+            else Console.WriteLine($"There is no customer with name {name} present in the system.");
         }
     }
 }

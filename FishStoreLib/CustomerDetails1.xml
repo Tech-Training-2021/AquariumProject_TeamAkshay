@@ -30,4 +30,14 @@
     <EMAIL>s@gmail.com</EMAIL>
     <PASS>jjgf</PASS>
   </CUSTOMER>
+  <CUSTOMER id="7">
+    <NAME>ganga</NAME>
+    <EMAIL>ganga@gmail.com</EMAIL>
+    <PASS>hcgfdxgxfc</PASS>
+  </CUSTOMER>
+  <CUSTOMER id="8">
+    <NAME>Shiv</NAME>
+    <EMAIL>shiv@gmail.com</EMAIL>
+    <PASS>xfdsfdgf</PASS>
+  </CUSTOMER>
 </CUSTOMERS>

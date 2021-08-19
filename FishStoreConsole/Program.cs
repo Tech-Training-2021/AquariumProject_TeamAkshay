@@ -5,7 +5,6 @@ using System.Collections;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ConsoleTables;
 
@@ -39,6 +38,7 @@ namespace FishStoreConsole
 
         public static void chooseLocation()
         {
+            Console.Clear();
             Console.Write("1.Mumbai\n2.Delhi\n3.Bangalore\n4.Exit\nChoose one option :   ");
             int chooseoption = int.Parse(Console.ReadLine());
             switch (chooseoption)
@@ -61,30 +61,34 @@ namespace FishStoreConsole
 
         public static void productsFromMumbai()
         {
+            Console.Clear();
             Location mum = new Location();
-            mum.accessfilePath = @"C:\dotnet\Project\AquariumProject_TeamAkshay\FishStoreLib\mumbaiData.json";
+            mum.accessfilePath = @"D:\AquariumProject_TeamAkshay\FishStoreLib\mumbaiData.json";
             mum.fetchDetails();
 
            menuWithinLocation(mum);
         }
         public static void productsFromDelhi()
         {
+            Console.Clear();
             Location del = new Location();
-            del.accessfilePath = @"C:\dotnet\Project\AquariumProject_TeamAkshay\FishStoreLib\delhiData.json";
+            del.accessfilePath = @"D:\AquariumProject_TeamAkshay\FishStoreLib\delhiData.json";
             del.fetchDetails();
             menuWithinLocation(del);
         }
 
         public static void productsFromBanglore()
         {
+            Console.Clear();
             Location ben = new Location();
-            ben.accessfilePath = @"C:\dotnet\Project\AquariumProject_TeamAkshay\FishStoreLib\BangloreData.json";
+            ben.accessfilePath = @"D:\AquariumProject_TeamAkshay\FishStoreLib\BangloreData.json";
             ben.fetchDetails();
             menuWithinLocation(ben);
         }
 
         public static void menuWithinLocation(Location obj)
         {
+            Console.Clear();
             Console.Write("1.Buy pet fish\n2.Buy fish food\n3.Buy tank\nChoose one option :   ");
             int chooseoption = int.Parse(Console.ReadLine());
             switch (chooseoption)
@@ -107,8 +111,7 @@ namespace FishStoreConsole
         public static void FishFromLocation(JArray fishDataArray, Location obj)
         {
             string type = "fish";
-
-
+            Console.Clear();
             var table = new ConsoleTable("Id", "Fish Name", "Price", "Available Quantity");
             foreach (var x in fishDataArray)
             {
@@ -116,40 +119,15 @@ namespace FishStoreConsole
             }
             table.Write();
             Console.Write("Choose id to buy fish : ");
-            int selectedId = int.Parse(Console.ReadLine());
-            foreach (var y in fishDataArray)
-            {
-                int id = Convert.ToInt32(y["id"]);
-
-                if (id == selectedId)
-                {
-                    Console.WriteLine($"You bought {y["Name"]} which cost you {y["Price"]}");
-                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]);
-                    Console.WriteLine("Enter the Quantity Of order in number");
-                    int UserInputQuantity = int.Parse(Console.ReadLine());
-                    if (UserInputQuantity < 11 && UserInputQuantity < updatedAvailableQuantity)
-                    {
-                        Console.WriteLine("Added to your order.Here is your Purchase data");
-                        int updatedAfterQuantity = Convert.ToInt32(y["availableQuantity"]) - UserInputQuantity;
-                        obj.saveData(updatedAfterQuantity, selectedId, type);
-                    }
-                    else if (UserInputQuantity > 11)
-                    {
-                        Console.WriteLine("Invalid Input.Enter the input between 1 t0 10");
-                    }
-                    else if (UserInputQuantity > updatedAvailableQuantity)
-                    {
-                        Console.WriteLine("IOut of Stock");
-                    }
-                    ContinueOrExitLocation(obj);
-                    break;
-                }
-            }
-
+            
+            order or = new order();
+            or.OrderFromStore(fishDataArray, obj, type);
+            ContinueOrExitLocation(obj);
         }
 
         public static void FoodFromLocation(JArray foodDataArray, Location obj)
         {
+            Console.Clear();
             string type = "food";
             var table = new ConsoleTable("id", "Food", "Price", "Available Quantity");
             foreach (var x in foodDataArray)
@@ -158,42 +136,16 @@ namespace FishStoreConsole
             }
             table.Write();
             Console.Write("Choose id to buy food : ");
-            int selectedId = int.Parse(Console.ReadLine());
-            foreach (var y in foodDataArray)
-            {
-                int id = Convert.ToInt32(y["id"]);
-
-                if (id == selectedId)
-                {
-                    Console.WriteLine($"You bought {y["food"]} which cost you {y["Price"]}");
-                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]);
-                    Console.WriteLine("Enter the Quantity Of order in number");
-                    int UserInputQuantity = int.Parse(Console.ReadLine());
-                    if (UserInputQuantity < 11 && UserInputQuantity < updatedAvailableQuantity)
-                    {
-                        Console.WriteLine("Added to your order.Here is your Purchase data");
-                        int updatedAfterQuantity = Convert.ToInt32(y["availableQuantity"]) - UserInputQuantity;
-                        obj.saveData(updatedAfterQuantity, selectedId, type);
-                    }
-                    else if (UserInputQuantity > 11)
-                    {
-                        Console.WriteLine("Invalid Input.Enter the input between 1 t0 10");
-                    }
-                    else if (UserInputQuantity > updatedAvailableQuantity)
-                    {
-                        Console.WriteLine("IOut of Stock");
-                    }
-
-                    ContinueOrExitLocation(obj);
-                    break;
-                }
-            }
+            order or = new order();
+            or.OrderFromStore(foodDataArray, obj, type);
+            ContinueOrExitLocation(obj);
 
 
         }
 
         public static void TankFromLocation(JArray tankDataArray, Location obj)
         {
+            Console.Clear();
             string type = "tank";
 
             var table = new ConsoleTable("id", "name", "price", "Available Quantity");
@@ -203,46 +155,21 @@ namespace FishStoreConsole
             }
             table.Write();
             Console.Write("Choose id to buy tank : ");
-            int selectedId = int.Parse(Console.ReadLine());
-            foreach (var y in tankDataArray)
-            {
-                int id = Convert.ToInt32(y["id"]);
-
-                if (id == selectedId)
-                {
-                    Console.WriteLine($"You bought {y["Name"]} which cost you {y["Price"]}");
-                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]);
-                    Console.WriteLine("Enter the Quantity Of order in number");
-                    int UserInputQuantity = int.Parse(Console.ReadLine());
-                    if (UserInputQuantity < 11 && UserInputQuantity < updatedAvailableQuantity)
-                    {
-                        Console.WriteLine("Added to your order.Here is your Purchase data");
-                        int updatedAfterQuantity = Convert.ToInt32(y["availableQuantity"]) - UserInputQuantity;
-                        obj.saveData(updatedAfterQuantity, selectedId, type);
-                    }
-                    else if (UserInputQuantity > 11)
-                    {
-                        Console.WriteLine("Invalid Input.Enter the input between 1 t0 10");
-                    }
-                    else if (UserInputQuantity > updatedAvailableQuantity)
-                    {
-                        Console.WriteLine("IOut of Stock");
-                    }
-                    ContinueOrExitLocation(obj);
-                    break;
-                }
-            }
+            order or = new order();
+            or.OrderFromStore(tankDataArray, obj, type);
+            ContinueOrExitLocation(obj);
         }
         
         static void Menu()
         {
-            Console.WriteLine("1. Add\n2. Get Details\n3. Update\n4. Delete\n5. Search a Customer\n6. Exit");
+            Console.Clear();    
+            Console.WriteLine("1. Add\n2. Get Customer\n3. Update\n4. Delete\n5. Search a Customer\n6. Exit");
             Console.Write("Choose an option :  ");
             var input = Console.ReadLine();
             PerformSelectedAction(input);
         }
 
-        const string xmlfile = @"C:\dotnet\Project\AquariumProject_TeamAkshay\FishStoreLib\CustomerDetails1.xml"; 
+        const string xmlfile = @"D:\AquariumProject_TeamAkshay\FishStoreLib\CustomerDetails1.xml"; 
         static void PerformSelectedAction(string input)
         {
             customer cus = new customer();
@@ -259,12 +186,12 @@ namespace FishStoreConsole
                         _id = m.id;
                     }
                     _id++;
-                    Console.WriteLine("Customer ID : " + _id);
-                    Console.WriteLine("Customer Name : ");
+                    Console.Write("Customer ID : " + _id + "\n");
+                    Console.Write("\nCustomer Name : ");
                     var name = Console.ReadLine();
-                    Console.WriteLine("Customer Email : ");
+                    Console.Write("\nCustomer Email : ");
                     var mail = Console.ReadLine();
-                    Console.WriteLine("Customer Password : ");
+                    Console.Write("\nCustomer Password : ");
                     var pass = Console.ReadLine();
                     cus.AddCustomer(new customer(_id, name , mail, pass));
                     ContinueOrExit();
@@ -277,25 +204,25 @@ namespace FishStoreConsole
                     break;
                 case "3":
                     Console.Clear();
-                    Console.WriteLine("Customer ID : ");
+                    Console.Write("Customer ID : ");
                    var  id1 = Console.ReadLine();
-                    Console.WriteLine("Customer Email : ");
+                    Console.Write("\nCustomer Email : ");
                      mail = Console.ReadLine();
-                    Console.WriteLine("Customer Password : ");
+                    Console.Write("\nCustomer Password : ");
                      pass = Console.ReadLine();
                     cus.updateCustomername(id1, mail , pass);
                     ContinueOrExit();
                     break;
                 case "4":
                     Console.Clear();
-                    Console.WriteLine("Customer ID : ");
+                    Console.Write("Customer ID : ");
                     id1 = Console.ReadLine();
                     cus.deleteCustomer(id1);
 
                     ContinueOrExit();
                     break;
                 case "5":
-                    Console.WriteLine("Customer Name : ");
+                    Console.Write("Customer Name : ");
                     name = Console.ReadLine();
                     cus.SearchCustomer(name);
                     ContinueOrExit();
@@ -307,7 +234,7 @@ namespace FishStoreConsole
 
         static void ContinueOrExit()
         {
-            Console.WriteLine("Do you want to continue? y/n");
+            Console.Write("\nDo you want to continue? y/n :\t");
             var result = Console.ReadLine();
             if (result == "y" || result == "Y") Menu();
             else Main();
@@ -315,7 +242,7 @@ namespace FishStoreConsole
 
         static void ContinueOrExitLocation(Location obj)
         {
-            Console.WriteLine("Do you want to continue? y/n");
+            Console.Write("\nDo you want to continue? y/n :\t");
             var result = Console.ReadLine();
             if (result == "y" || result == "Y") menuWithinLocation(obj);
             else chooseLocation();

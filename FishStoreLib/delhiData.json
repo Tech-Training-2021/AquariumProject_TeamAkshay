@@ -4,7 +4,7 @@
       "id": 1,
       "Name": "Goldfish",
       "Price": 100,
-      "availableQuantity": 79
+      "availableQuantity": 75
     },
     {
       "id": 2,
@@ -42,7 +42,7 @@
       "id": 2,
       "food": "FPellets",
       "Price": 300,
-      "availableQuantity": 100
+      "availableQuantity": 80
     },
     {
       "id": 3,

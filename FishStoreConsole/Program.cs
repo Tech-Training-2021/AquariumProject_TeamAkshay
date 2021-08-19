@@ -190,6 +190,8 @@ namespace FishStoreConsole
                     break;
                 case 2: productsFromDelhi();
                     break;
+                case 3: productsFromBanglore();
+                    break;
                 default:
                     Console.WriteLine("Invalid option");
                     break;
@@ -218,6 +220,135 @@ namespace FishStoreConsole
             Delhi del = new Delhi();
             del.fetchDetails();
             menuWithinLocation(del);
+        }
+
+        public static void productsFromBanglore()
+        {
+            Banglore bu = new Banglore();
+            bu.fetchDetails();
+            menuWithinLocation(bu);
+        }
+
+
+        public static void menuWithinLocation(Banglore bu)
+        {
+            Console.Write("1.Buy pet fish\n2.Buy fish food\n3.Buy tank\nChoose one option :   ");
+            int chooseoption = int.Parse(Console.ReadLine());
+            switch (chooseoption)
+            {
+                case 1:
+                    FishFromBanglore(bu.fishDataArray, bu);
+                    break;
+                case 2:
+                    FoodFromBanglore(bu.fishFoodArray, bu);
+                    break;
+                case 3:
+                    TankFromBanglore(bu.fishTankArray, bu);
+                    break;
+                default:
+                    chooseLocation();
+                    break;
+            }
+        }
+        public static void FishFromBanglore(JArray fishDataArray, Banglore bu)
+        {
+            string type = "fish";
+
+
+            var table = new ConsoleTable("Id", "Fish Name", "Price", "Available Quantity");
+            foreach (var x in fishDataArray)
+            {
+                table.AddRow(x["id"], x["Name"], x["Price"], x["availableQuantity"]);
+            }
+            table.Write();
+            Console.Write("Choose id to buy fish : ");
+            int selectedId = int.Parse(Console.ReadLine());
+            foreach (var y in fishDataArray)
+            {
+                int id = Convert.ToInt32(y["id"]);
+
+                if (id == selectedId)
+                {
+                    Console.WriteLine($"You bought {y["Name"]} which cost you {y["Price"]}");
+                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]) - 1;
+                    Console.WriteLine("Updated Quantity " + updatedAvailableQuantity);
+                    bu.saveData(updatedAvailableQuantity, selectedId, type);
+                    ContinueOrExitLocation(bu);
+                    break;
+                }
+            }
+
+        }
+
+        public static void FoodFromBanglore(JArray foodDataArray, Banglore bu)
+        {
+            string type = "food";
+            var table = new ConsoleTable("id", "Food", "Price", "Available Quantity");
+            foreach (var x in foodDataArray)
+            {
+                table.AddRow(x["id"], x["food"], x["Price"], x["availableQuantity"]);
+            }
+            table.Write();
+            Console.Write("Choose id to buy food : ");
+            int selectedId = int.Parse(Console.ReadLine());
+            foreach (var y in foodDataArray)
+            {
+                int id = Convert.ToInt32(y["id"]);
+
+                if (id == selectedId)
+                {
+                    Console.WriteLine($"You bought {y["food"]} which cost you {y["Price"]}");
+                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]) - 1;
+                    //Console.WriteLine("Updated Quantity " + updatedAvailableQuantity);
+                    bu.saveData(updatedAvailableQuantity, selectedId, type);
+                    ContinueOrExitLocation(bu);
+                    break;
+                }
+            }
+
+
+        }
+
+
+        public static void TankFromBanglore(JArray tankDataArray, Banglore bu)
+        {
+            string type = "tank";
+
+            var table = new ConsoleTable("id", "name", "price", "Available Quantity");
+            foreach (var x in tankDataArray)
+            {
+                table.AddRow(x["id"], x["Name"], x["Price"], x["availableQuantity"]);
+            }
+            table.Write();
+            Console.Write("Choose id to buy tank : ");
+            int selectedId = int.Parse(Console.ReadLine());
+            foreach (var y in tankDataArray)
+            {
+                int id = Convert.ToInt32(y["id"]);
+
+                if (id == selectedId)
+                {
+                    Console.WriteLine($"You bought {y["Name"]} which cost you {y["Price"]}");
+                    int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]);
+                    Console.WriteLine("Enter the Quantity Of order in number");
+                    int UserInputQuantity = int.Parse(Console.ReadLine());
+                    if(UserInputQuantity<11 && UserInputQuantity<updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("Added to your order.Here is your Purchase data");
+                        int updatedAfterQuantity = Convert.ToInt32(y["availableQuantity"]) - UserInputQuantity;
+                        bu.saveData(updatedAfterQuantity, selectedId, type);
+                    }
+                    else if(UserInputQuantity>11 || UserInputQuantity>updatedAvailableQuantity)
+                    {
+                        Console.WriteLine("Invalid Input/Out of Stock");
+                    }
+                    //int updatedAvailableQuantity = Convert.ToInt32(y["availableQuantity"]) - 1;
+                    //Console.WriteLine("Updated Quantity " + updatedAvailableQuantity);
+                   // bu.saveData(updatedAfterQuantity, selectedId, type);
+                    ContinueOrExitLocation(bu);
+                    break;
+                }
+            }
         }
 
         public static void menuWithinLocation(Mumbai mu)
@@ -536,6 +667,13 @@ namespace FishStoreConsole
             Console.WriteLine("Do you want to continue? y/n");
             var result = Console.ReadLine();
             if (result == "y" || result == "Y") menuWithinLocation(del);
+            else chooseLocation();
+        }
+        static void ContinueOrExitLocation(Banglore bu)
+        {
+            Console.WriteLine("Do you want to continue? y/n");
+            var result = Console.ReadLine();
+            if (result == "y" || result == "Y") menuWithinLocation(bu);
             else chooseLocation();
         }
 

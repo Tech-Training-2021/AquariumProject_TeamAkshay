@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishStoreLib", "FishStoreLib\FishStoreLib.csproj", "{8890BA5E-EA74-497D-8512-E0D885054CBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FishStoreLib", "FishStoreLib\FishStoreLib.csproj", "{8890BA5E-EA74-497D-8512-E0D885054CBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishStoreConsole", "FishStoreConsole\FishStoreConsole.csproj", "{0A30E182-1FA6-4683-9949-0653DF80828A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FishStoreConsole", "FishStoreConsole\FishStoreConsole.csproj", "{0A30E182-1FA6-4683-9949-0653DF80828A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleTest", "SampleTest\SampleTest.csproj", "{DF2C6D68-C60F-470D-B910-41569C284C5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0A30E182-1FA6-4683-9949-0653DF80828A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A30E182-1FA6-4683-9949-0653DF80828A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A30E182-1FA6-4683-9949-0653DF80828A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF2C6D68-C60F-470D-B910-41569C284C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF2C6D68-C60F-470D-B910-41569C284C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF2C6D68-C60F-470D-B910-41569C284C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF2C6D68-C60F-470D-B910-41569C284C5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,63 +4,63 @@
       "id": 1,
       "Name": "Goldfish",
       "Price": 100,
-      "availableQuantity": 63
+      "availableQuantity": 90
     },
     {
       "id": 2,
       "Name": "Angelfish",
       "Price": 150,
-      "availableQuantity": 84
+      "availableQuantity": 200
     },
     {
       "id": 3,
       "Name": "African Leaf Fish",
       "Price": 200,
-      "availableQuantity": 80
+      "availableQuantity": 100
     },
     {
       "id": 4,
       "Name": "Oscar",
       "Price": 250,
-      "availableQuantity": 114
+      "availableQuantity": 48
     },
     {
       "id": 5,
       "Name": "Tiger barb",
       "Price": 300,
-      "availableQuantity": 110
+      "availableQuantity": 70
     }
   ],
   "fishFood": [
     {
       "id": 1,
-      "food": "Flake Food",
+      "Name": "Flake Food",
       "Price": 200,
-      "availableQuantity": 49
+      "availableQuantity": 70
     },
     {
       "id": 2,
-      "food": "FPellets",
+      "Name": "FPellets",
       "Price": 300,
-      "availableQuantity": 60
+      "availableQuantity": 100
     },
     {
       "id": 3,
-      "food": "Freeze-Dried",
+      "Name": "Freeze-Dried",
       "Price": 400,
-      "availableQuantity": 499
+      "availableQuantity": 89
     },
     {
       "id": 4,
-      "food": "Frozen",
+      "Name": "Frozen",
       "Price": 500,
-      "availableQuantity": 30
+      "availableQuantity": 100
     },
     {
       "id": 5,
-      "food": "Spirulina/Dried Seaweed",
+      "Name": "Spirulina/Dried Seaweed",
       "Price": 550,
-      "availableQuantity": 20
+      "availableQuantity": 80
     }
   ],
   "fishTank": [
@@ -68,31 +68,31 @@
       "id": 1,
       "Name": "Coldwater Aquarium",
       "Price": 1000,
-      "availableQuantity": 5
+      "availableQuantity": 60
     },
     {
       "id": 2,
       "Name": "Freshwater Tropical Aquarium",
       "Price": 1500,
-      "availableQuantity": 17
+      "availableQuantity": 40
     },
     {
       "id": 3,
       "Name": "Marine (Saltwater) Aquarium",
       "Price": 2000,
-      "availableQuantity": 16
+      "availableQuantity": 50
     },
     {
       "id": 4,
       "Name": "Brackish Aquarium",
       "Price": 2500,
-      "availableQuantity": 12
+      "availableQuantity": 70
     },
     {
       "id": 5,
       "Name": "Betta Fish Tank",
       "Price": 3000,
-      "availableQuantity": 15
+      "availableQuantity": 100
     }
   ]
 }

@@ -16,7 +16,7 @@
       "id": 3,
       "Name": "African Leaf Fish",
       "Price": 200,
-      "availableQuantity": 50
+      "availableQuantity": 48
     },
     {
       "id": 4,
@@ -28,37 +28,37 @@
       "id": 5,
       "Name": "Tiger barb",
       "Price": 300,
-      "availableQuantity": 110
+      "availableQuantity": 108
     }
   ],
   "fishFood": [
     {
       "id": 1,
-      "food": "Flake Food",
+      "Name": "Flake Food",
       "Price": 200,
       "availableQuantity": 74
     },
     {
       "id": 2,
-      "food": "FPellets",
+      "Name": "FPellets",
       "Price": 300,
       "availableQuantity": 50
     },
     {
       "id": 3,
-      "food": "Freeze-Dried",
+      "Name": "Freeze-Dried",
       "Price": 400,
       "availableQuantity": 400
     },
     {
       "id": 4,
-      "food": "Frozen",
+      "Name": "Frozen",
       "Price": 500,
       "availableQuantity": 20
     },
     {
       "id": 5,
-      "food": "Spirulina/Dried Seaweed",
+      "Name": "Spirulina/Dried Seaweed",
       "Price": 550,
       "availableQuantity": 40
     }
@@ -92,7 +92,7 @@
       "id": 5,
       "Name": "Betta Fish Tank",
       "Price": 3000,
-      "availableQuantity": 45
+      "availableQuantity": 35
     }
   ]
 }

@@ -12,13 +12,13 @@
   </CUSTOMER>
   <CUSTOMER id="3">
     <NAME>Akshay</NAME>
-    <EMAIL>akshay@gmail.com</EMAIL>
-    <PASS>akshay</PASS>
+    <EMAIL>sham12@gmail.com</EMAIL>
+    <PASS>1222Ak</PASS>
   </CUSTOMER>
   <CUSTOMER id="4">
     <NAME>Vishram</NAME>
-    <EMAIL>vishram@gmail.com</EMAIL>
-    <PASS>vishram</PASS>
+    <EMAIL>abc@gmail.com</EMAIL>
+    <PASS>a!1B</PASS>
   </CUSTOMER>
   <CUSTOMER id="5">
     <NAME>Imam</NAME>
@@ -29,5 +29,25 @@
     <NAME>Shyam</NAME>
     <EMAIL>s@gmail.com</EMAIL>
     <PASS>jjgf</PASS>
+  </CUSTOMER>
+  <CUSTOMER id="7">
+    <NAME>ganga</NAME>
+    <EMAIL>ganga@gmail.com</EMAIL>
+    <PASS>hcgfdxgxfc</PASS>
+  </CUSTOMER>
+  <CUSTOMER id="8">
+    <NAME>Shiv</NAME>
+    <EMAIL>shiv@gmail.com</EMAIL>
+    <PASS>xfdsfdgf</PASS>
+  </CUSTOMER>
+  <CUSTOMER id="9">
+    <NAME>akk</NAME>
+    <EMAIL>ak@gmail.com</EMAIL>
+    <PASS>Qe1222</PASS>
+  </CUSTOMER>
+  <CUSTOMER id="10">
+    <NAME>rahul</NAME>
+    <EMAIL>rahul@gmail.com</EMAIL>
+    <PASS>Am12345</PASS>
   </CUSTOMER>
 </CUSTOMERS>

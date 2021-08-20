@@ -28,7 +28,7 @@ namespace FishStoreLib
             email = _mail;
             password = _pass;
         }
-        const string xmlfile = @"D:\AquariumProject_TeamAkshay\FishStoreLib\CustomerDetails1.xml";
+        const string xmlfile = @"C:\Users\user\Project_FishStore\AquariumProject_TeamAkshay\FishStoreLib\CustomerDetails1.xml";
 
         public void deleteCustomer(string id)
         {

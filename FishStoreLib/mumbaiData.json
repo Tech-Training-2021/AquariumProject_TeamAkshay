@@ -22,7 +22,7 @@
       "id": 4,
       "Name": "Oscar",
       "Price": 250,
-      "availableQuantity": 50
+      "availableQuantity": 48
     },
     {
       "id": 5,
@@ -48,7 +48,7 @@
       "id": 3,
       "food": "Freeze-Dried",
       "Price": 400,
-      "availableQuantity": 90
+      "availableQuantity": 89
     },
     {
       "id": 4,
@@ -80,7 +80,7 @@
       "id": 3,
       "Name": "Marine (Saltwater) Aquarium",
       "Price": 2000,
-      "availableQuantity": 56
+      "availableQuantity": 55
     },
     {
       "id": 4,

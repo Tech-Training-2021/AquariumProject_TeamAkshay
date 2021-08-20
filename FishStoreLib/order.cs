@@ -92,8 +92,8 @@ namespace FishStoreLib
 
                     break;
                 }
-            }
 
+            }
         }
     }
 }

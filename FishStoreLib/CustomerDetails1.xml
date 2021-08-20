@@ -17,8 +17,8 @@
   </CUSTOMER>
   <CUSTOMER id="4">
     <NAME>Vishram</NAME>
-    <EMAIL>vishram@gmail.com</EMAIL>
-    <PASS>vishram</PASS>
+    <EMAIL>abc@gmail.com</EMAIL>
+    <PASS>a!1B</PASS>
   </CUSTOMER>
   <CUSTOMER id="5">
     <NAME>Imam</NAME>
